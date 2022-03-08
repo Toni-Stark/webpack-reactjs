@@ -4,10 +4,7 @@ import { UserInfo } from "./page/UserInfo";
 
 export const App = () => {
     return (
-        <div>
-            <div>
-                Webpack Application
-            </div>
+        <div style={{alignItems: "center"}}>
             <Home />
             <UserInfo />
         </div>

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const  { CleanWebpackPlugin }  =  require ( 'clean-webpack-plugin' ) ;
 
 const LessRegex = /.less$/;
 const LessOrModuleRegex = /^(.less)$|^(\.module\.less)$/;
@@ -41,22 +42,13 @@ module.exports = {
                 ],
             },
             {
-                test: /\.svg/,
-                type: 'asset/inline'
+                test: /\.(gif|png|jpe?g)(\?\S*)?$/,
+                loader: require.resolve('url-loader'),
+                options: {
+                    limit: 10000,
+                    name: path.posix.join('static',  '[name]_[hash:7].[ext]')
+                }
             },
-            {
-                test: /\.(png|jpg|gif)$/i,
-                dependency: { not: ['url'] },
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                        }
-                    }
-                ],
-                type: 'javascript/auto'
-            }
         ]
     },
     resolve: {
@@ -64,12 +56,18 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './build'),
-        filename: 'bundle.js',
-        publicPath: '/'
+        filename: `[name][hash:5].bundle.js`,
+        publicPath: './'
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: "index.html",
             template: path.resolve(__dirname, './public/index.html'),
-        })
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+            }
+        }),
+        new CleanWebpackPlugin ( ),
     ]
 }
