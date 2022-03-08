@@ -1,5 +1,5 @@
 {
-  "name": "webpack-application",
+  "name": "react-cli",
   "version": "1.0.0",
   "description": "test webpack",
   "main": "./src/index.jsx",
@@ -19,16 +19,13 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "clean-webpack-plugin": "^4.0.0",
     "express": "^4.17.2",
-    "dotenv": "8.2.0",
-    "dotenv-expand": "5.1.0",
-    "dat.gui": "^0.7.9",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jquery": "^3.6.0",
     "jsx-loader": "^0.13.2",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "react": "^17.0.2",
-    "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
     "react-dom": "^17.0.2",
     "sass": "^1.49.7",
@@ -37,10 +34,7 @@
     "typescript": "^4.5.5",
     "webpack-cli": "^4.9.2"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "homepage": "https://github.com/Toni-Stark/webpack-reactjs",
+  "homepage": "./",
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
